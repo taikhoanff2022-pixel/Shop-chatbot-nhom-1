@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Văn Manh - Sản Phẩm Chất Lượng</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-store"></i> Shop Văn Manh</h1>
+            <div class="header-right">
+                <span class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Chào mừng đến với Shop Văn Mạnh</h2>
+                <p>Khám phá bộ sưu tập sản phẩm chất lượng với giá tốt nhất</p>
+                <a href="#products" class="hero-btn">Xem Sản Phẩm</a>
+            </div>
+        </section>
+
+        <section class="categories">
+            <h2>Danh Mục Sản Phẩm</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=200&fit=crop" alt="Điện thoại">
+                    <h3>Điện Thoại</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&h=200&fit=crop" alt="Laptop">
+                    <h3>Laptop</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=300&h=200&fit=crop" alt="Thời trang">
+                    <h3>Thời Trang</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=200&fit=crop" alt="Phụ kiện">
+                    <h3>Phụ Kiện</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="products" id="products">
+            <h2>Sản Phẩm Nổi Bật</h2>
+            <div class="product-search">
+                <input type="text" id="searchInput" placeholder="Tìm sản phẩm...">
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded by JS -->
+            </div>
+        </section>
+
+        <section class="checkout" id="checkout">
+            <h2>Thông Tin Đặt Hàng</h2>
+            <p class="checkout-note">Vui lòng điền đầy đủ thông tin để hoàn tất đơn hàng.</p>
+            <div class="checkout-summary" id="checkoutSummary">
+                <p>Giỏ hàng của bạn đang trống. Hãy thêm sản phẩm để đặt hàng.</p>
+            </div>
+            <form class="checkout-form" id="orderForm">
+                <div class="form-group">
+                    <label for="customerName">Họ và tên</label>
+                    <input type="text" id="customerName" name="customerName" placeholder="Nguyễn Văn A" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerEmail">Email</label>
+                    <input type="email" id="customerEmail" name="customerEmail" placeholder="example@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">Số điện thoại</label>
+                    <input type="tel" id="customerPhone" name="customerPhone" placeholder="0912345678" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerAddress">Địa chỉ nhận hàng</label>
+                    <textarea id="customerAddress" name="customerAddress" rows="3" placeholder="Số nhà, đường, quận, thành phố" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="paymentMethod">Phương thức thanh toán</label>
+                    <select id="paymentMethod" name="paymentMethod" required>
+                        <option value="">Chọn phương thức</option>
+                        <option value="cash">Tiền mặt khi nhận hàng</option>
+                        <option value="card">Thẻ tín dụng/ghi nợ</option>
+                        <option value="transfer">Chuyển khoản ngân hàng</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="orderNote">Ghi chú</label>
+                    <textarea id="orderNote" name="orderNote" rows="2" placeholder="Yêu cầu giao hàng, mã giảm giá..."></textarea>
+                </div>
+                <button type="submit" class="checkout-button">Đặt Hàng</button>
+            </form>
+        </section>
+
+        <!-- Cart Modal -->
+        <div class="modal" id="cartModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Giỏ Hàng (<span id="cartTotalItems">0</span>)</h2>
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <strong>Tổng: <span id="cartTotalPrice">0đ</span></strong>
+                </div>
+                <div class="cart-actions">
+                    <button id="checkoutButton" class="checkout-button modal-checkout-button" disabled>Đặt Hàng</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Web Bán Hàng. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-toggle" id="chatToggle">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chatbot-window" id="chatWindow">
+            <div class="chatbot-header">
+                <span>Chatbot Hỗ Trợ</span>
+                <i class="fas fa-times close-chat" id="closeChat"></i>
+            </div>
+            <div class="chatbot-messages" id="chatMessages">
+                <div class="message bot">Xin chào! Tôi có thể giúp gì cho bạn?</div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatInput" placeholder="Nhập tin nhắn...">
+                <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
