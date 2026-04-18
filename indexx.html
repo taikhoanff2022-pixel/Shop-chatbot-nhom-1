@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Văn Mạnh - Sản phẩm chất lượng</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1>Shop Văn Mạnh</h1>
+            <!-- Categories moved here -->
+            <div class="header-categories">
+                <button class="category-btn active" data-category="all">Tất cả</button>
+                <button class="category-btn" data-category="thoi-trang">Thời trang</button>
+                <button class="category-btn" data-category="dien-thoai">Điện thoại</button>
+                <button class="category-btn" data-category="my-pham">Mỹ phẩm</button>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+                <span class="search-icon">🔍</span>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <button class="view-cart-btn" id="viewCartBtn">Xem giỏ hàng</button>
+            <span id="cart-count">0</span> 🛒
+        </div>
+    </header>
+
+    <main class="products-grid" id="products-grid">
+        <!-- Products dynamically loaded by JS -->
+    </main>
+
+    <!-- Shop Information Section -->
+    <section class="shop-info">
+        <h2>Về Shop Văn Mạnh</h2>
+        <div class="shop-content">
+            <div class="shop-image">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop" alt="Shop Văn Mạnh" class="shop-photo">
+            </div>
+            <div class="shop-description">
+                <h3>Giới thiệu</h3>
+                <p>Shop Văn Mạnh chuyên cung cấp các sản phẩm chất lượng cao với giá cả phải chăng. Chúng tôi cam kết mang đến trải nghiệm mua sắm tốt nhất cho khách hàng.</p>
+            </div>
+            <div class="shop-contact">
+                <h3>Liên hệ</h3>
+                <p><strong>Địa chỉ:</strong>Thọ Long, Thanh Hóa</p>
+                <p><strong>Điện thoại:</strong> 0904956291</p>
+                <p><strong>Email:</strong> info@shopvanmanh.com</p>
+                <p><strong>Giờ mở cửa:</strong> 8:00 - 22:00 hàng ngày</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Chat Logo/Button -->
+    <div class="chat-toggle" id="chatToggle">
+        <div class="logo">💬</div>
+    </div>
+
+    <!-- Chatbot Sidebar -->
+    <div class="chatbot" id="chatbot">
+        <div class="chat-header">
+            <h3>Hỗ trợ khách hàng</h3>
+            <button class="close-chat" id="closeChat">&times;</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">👋 Xin chào! Tôi là trợ lý ảo của Shop Văn Mạnh. Tôi có thể giúp bạn tìm sản phẩm, tư vấn giá cả, hoặc hỗ trợ đặt hàng. Hãy hỏi tôi bất cứ điều gì nhé! 😊</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Nhập tin nhắn...">
+            <button id="sendChat">Gửi</button>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Giỏ hàng của bạn</h3>
+                <button class="close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be populated by JS -->
+            </div>
+            <div class="cart-total" id="cartTotal">
+                <strong>Tổng cộng: 0 VNĐ</strong>
+            </div>
+            <div class="checkout-form">
+                <h4>Thông tin giao hàng</h4>
+                <form id="checkoutForm">
+                    <div class="form-group">
+                        <label for="customerName">Họ tên:</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Số điện thoại:</label>
+                        <input type="tel" id="customerPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerEmail">Email:</label>
+                        <input type="email" id="customerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerAddress">Địa chỉ giao hàng:</label>
+                        <textarea id="customerAddress" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerNote">Ghi chú:</label>
+                        <textarea id="customerNote" rows="2" placeholder="Ghi chú thêm (tùy chọn)"></textarea>
+                    </div>
+                    <button type="submit" class="checkout-btn">Đặt hàng</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <span class="toast-icon">✅</span>
+            <span class="toast-message" id="toastMessage"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
